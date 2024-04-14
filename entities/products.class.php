@@ -39,6 +39,17 @@ class Product{
         $result = $db->select_to_array($sql);
         return $result;
     }
+
+    public static function getProductDetail($product_id) {
+        $db = new Db();
+        $sql = "SELECT * FROM products WHERE product_id = $product_id";
+        $result = $db->select_to_array($sql);
+        if ($result && count($result) > 0) {
+            return $result[0];
+        } else {
+            return null;
+        }
+    }
 }
 
 ?>

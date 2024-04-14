@@ -48,7 +48,7 @@ if(isset($_POST['add_to_cart'])){
                         <input type="hidden" name="product_price" value="<?php echo $product['product_price']; ?>">
                         <input type="hidden" name="product_img" value="<?php echo $product['product_img']; ?>">
                         <button type="submit" class="btn btn-primary" name="add_to_cart">Đặt hàng</button>
-                        <a href="#" class="btn btn-secondary">Chi tiết</a>
+                        <a href="detail.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-secondary">Chi tiết</a>
                     </form>
                 </div>
             <?php endforeach; ?>
@@ -68,7 +68,7 @@ if(isset($_POST['add_to_cart'])){
                         <input type="hidden" name="product_price" value="<?php echo $product['product_price']; ?>">
                         <input type="hidden" name="product_img" value="<?php echo $product['product_img']; ?>">
                         <button type="submit" class="btn btn-primary" name="add_to_cart">Đặt hàng</button>
-                        <a href="#" class="btn btn-secondary">Chi tiết</a>
+                        <a href="detail.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-secondary">Chi tiết</a>
                     </form>
                 </div>
             <?php endforeach; ?>

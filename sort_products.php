@@ -20,7 +20,7 @@ if(isset($_GET['category_id']) && $_GET['category_id'] !== 'all') {
             echo '<input type="hidden" name="product_price" value="' . $product['product_price'] . '">';
             echo '<input type="hidden" name="product_img" value="' . $product['product_img'] . '">';
             echo '<button type="submit" class="btn btn-primary" name="add_to_cart" style="margin-right: 40px">Đặt hàng</button>';
-            echo '<a href="#" class="btn btn-secondary">Chi tiết</a>';
+            echo '<a href="detail.php?product_id=' . $product['product_id'] . '" class="btn btn-secondary">Chi tiết</a>';
             echo '</form>';
             echo '</div>';
             echo "</div>";
@@ -43,7 +43,7 @@ if(isset($_GET['category_id']) && $_GET['category_id'] !== 'all') {
         echo '<input type="hidden" name="product_price" value="' . $product['product_price'] . '">';
         echo '<input type="hidden" name="product_img" value="' . $product['product_img'] . '">';
         echo '<button type="submit" class="btn btn-primary" name="add_to_cart" style="margin-right: 40px">Đặt hàng</button>';
-        echo '<a href="#" class="btn btn-secondary">Chi tiết</a>';
+        echo '<a href="detail.php?product_id=' . $product['product_id'] . '" class="btn btn-secondary">Chi tiết</a>';
         echo '</form>';
         echo '</div>';
         echo "</div>";

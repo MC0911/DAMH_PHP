@@ -4,6 +4,28 @@
 
 @include 'db.php';
 
+$userLoggedIn = false;
+if (isset($_SESSION['user_email'])) {
+    $userLoggedIn = true;
+}
+
+// Đặt các giá trị mặc định cho các trường nhập liệu
+$order_name = "";
+$order_address = "";
+$order_phonenumber = "";
+
+// Nếu người dùng đã đăng nhập, điền thông tin từ tài khoản của họ
+if ($userLoggedIn) {
+    $user_email = $_SESSION['user_email'];
+    $userInfo = User::getUserInfoByEmail($user_email);
+    if ($userInfo) {
+        $order_name = $userInfo['user_name'];
+        $order_address = $userInfo['user_address'];
+        $order_phonenumber = $userInfo['user_phonenumber'];
+    }
+}
+
+
 if(isset($_POST['order_btn'])){
 
    $order_name = $_POST['order_name'];
@@ -80,15 +102,15 @@ if(isset($_POST['order_btn'])){
       <div class="flex">
          <div class="inputBox">
             <span>Your name</span>
-            <input type="text" placeholder="enter your name" name="order_name" required>
+            <input type="text" placeholder="enter your name" name="order_name" value="<?php echo $order_name; ?>" required>
          </div>
          <div class="inputBox">
             <span>Your address</span>
-            <input type="text" placeholder="enter your address" name="order_address" required>
+            <input type="text" placeholder="enter your address" name="order_address" value="<?php echo $order_address; ?>" required>
          </div>
          <div class="inputBox">
             <span>Your phonenumber</span>
-            <input type="number" placeholder="enter your phonenumber" name="order_phonenumber" required>
+            <input type="number" placeholder="enter your phonenumber" name="order_phonenumber" value="<?php echo $order_phonenumber; ?>" required>
          </div>
          <div class="inputBox">
             <span>Size</span>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2024 at 07:22 PM
+-- Generation Time: Apr 14, 2024 at 02:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -60,10 +60,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `cart_name`, `cart_image`, `cart_quantity`, `cart_price`) VALUES
-(19, 'Áo thun 123', 'product1.jpg', 9, '100'),
-(20, 'Áo thun 333', 'product3.png', 1, '80'),
-(21, 'Quần thể thao 444', 'product4.png', 1, '120'),
-(22, 'Giày thể thao 666', 'product8.jpg', 7, '2000');
+(35, 'Áo thun 333', 'product3.png', 1, '80');
 
 -- --------------------------------------------------------
 
@@ -109,7 +106,9 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`order_id`, `order_name`, `order_address`, `order_phonenumber`, `order_size`, `total_products`, `total_price`) VALUES
 (1, 'cng', 'qwe@gmail.com', '21231231', 'Medium', 'Áo thun 123 (1) , Áo thun 333 (1) , Quần thể thao 444 (1) ', '300'),
 (2, 'qweaaa', 'qweeee@gmail.com', '123123123', 'Big', 'Áo thun 123 (9) , Áo thun 333 (1) , Quần thể thao 444 (1) , Giày thể thao 666 (7) ', '1114'),
-(3, 'qweaaa', 'qweeee@gmail.com', '123123123', 'Big', 'Áo thun 123 (9) , Áo thun 333 (1) , Quần thể thao 444 (1) , Giày thể thao 666 (7) ', '15100');
+(3, 'qweaaa', 'qweeee@gmail.com', '123123123', 'Big', 'Áo thun 123 (9) , Áo thun 333 (1) , Quần thể thao 444 (1) , Giày thể thao 666 (7) ', '15100'),
+(4, 'asdasd', 'zxczxczxc', '12312312312', 'Big', 'Áo thun 333 (1) , Quần thể thao 444 (1) ', '200'),
+(5, 'Hà Mạnh Cường', '017 Bùi Công Trừng, xã Đông Thạnh, huyện Hóc Môn.', '862727024', 'Large', 'Áo thun 333 (3) , Quần thể thao 444 (4) , Giày thể thao 666 (1) ', '2720');
 
 -- --------------------------------------------------------
 
@@ -120,7 +119,9 @@ INSERT INTO `orders` (`order_id`, `order_name`, `order_address`, `order_phonenum
 CREATE TABLE `orders_users` (
   `order_id` int(11) NOT NULL,
   `order_user` int(11) NOT NULL,
-  `order_size` varchar(255) NOT NULL
+  `order_size` varchar(255) NOT NULL,
+  `total_products` varchar(255) NOT NULL,
+  `total_price` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -260,7 +261,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -272,7 +273,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders_users`
