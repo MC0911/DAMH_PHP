@@ -36,10 +36,10 @@ if(isset($_GET['delete_all'])){
 
       <thead>
          <th>Image</th>
-         <th>Name</th>
-         <th>Price</th>
-         <th>Quantity</th>
-         <th>Total Price</th>
+         <th>Sản phẩm</th>
+         <th>Giá</th>
+         <th>Số lượng</th>
+         <th>Tổng tiền</th>
          <th>Action</th>
       </thead>
 
@@ -73,8 +73,8 @@ if(isset($_GET['delete_all'])){
          };
          ?>
          <tr class="table-bottom">
-            <td><a href="products.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
-            <td colspan="3">grand total</td>
+            <td><a href="products.php" class="option-btn" style="margin-top: 0;">Tiếp tục mua sắm</a></td>
+            <td colspan="3">Tổng cộng</td>
             <td>$<?php echo $grand_total; ?></td>
             <td><a href="order.php?delete_all" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td>
          </tr>
@@ -84,7 +84,7 @@ if(isset($_GET['delete_all'])){
    </table>
 
    <div class="checkout-btn">
-      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">procced to checkout</a>
+      <a href="checkout.php" class="btn btn-primary <?= ($grand_total > 1)?'':'disabled'; ?>" style="margin-bottom: 25px;">Thanh toán</a>
    </div>
 
 </section>

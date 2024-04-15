@@ -25,7 +25,6 @@ if(isset($_POST['add_to_cart'])){
 ?>
 
 <style>
-    /* Thiết kế trang chi tiết sản phẩm */
     .product-detail {
         max-width: 800px;
         margin: 0 auto;
@@ -92,7 +91,6 @@ if(isset($_POST['add_to_cart'])){
 
 <div class="content">
     <?php
-    // Lấy thông tin của sản phẩm từ URL hoặc từ cơ sở dữ liệu
     if(isset($_GET['product_id'])) {
         $product_id = $_GET['product_id'];
         require_once("./entities/products.class.php");
@@ -114,7 +112,6 @@ if(isset($_POST['add_to_cart'])){
     </div>
     <?php
     } else {
-        // Xử lý khi không có product_id
         echo "<div class='content'><p>Không tìm thấy thông tin sản phẩm.</p></div>";
     }
     ?>

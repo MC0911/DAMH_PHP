@@ -9,12 +9,10 @@ if (isset($_SESSION['user_email'])) {
     $userLoggedIn = true;
 }
 
-// Đặt các giá trị mặc định cho các trường nhập liệu
 $order_name = "";
 $order_address = "";
 $order_phonenumber = "";
 
-// Nếu người dùng đã đăng nhập, điền thông tin từ tài khoản của họ
 if ($userLoggedIn) {
     $user_email = $_SESSION['user_email'];
     $userInfo = User::getUserInfoByEmail($user_email);
@@ -53,15 +51,15 @@ if(isset($_POST['order_btn'])){
          <h3>Thank you for shopping!</h3>
          <div class='order-detail'>
             <span>".$total_product."</span>
-            <span class='total'> Total : $".$price_total."  </span>
+            <span class='total'> Giá tiền : $".$price_total."  </span>
          </div>
          <div class='customer-details'>
-            <p> Your name : <span>".$order_name."</span> </p>
-            <p> Your address : <span>".$order_address."</span> </p>
-            <p> Your phonenumber : <span>".$order_phonenumber."</span> </p>
-            <p> Your size : <span>".$order_size."</span> </p>
+            <p> Họ và tên : <span>".$order_name."</span> </p>
+            <p> Địa chỉ : <span>".$order_address."</span> </p>
+            <p> Số điện thoại : <span>".$order_phonenumber."</span> </p>
+            <p> Size : <span>".$order_size."</span> </p>
          </div>
-            <a href='products.php' class='btn'>continue shopping</a>
+            <a href='products.php' class='btn'>Tiếp tục mua sắm</a>
          </div>
       </div>
       ";
@@ -75,7 +73,7 @@ if(isset($_POST['order_btn'])){
 
 <section class="checkout-form">
 
-   <h1 class="heading">Complete your order</h1>
+   <h1 class="heading">Hoàn thành đơn của bạn</h1>
 
    <form action="" method="post">
 
@@ -96,21 +94,21 @@ if(isset($_POST['order_btn'])){
          echo "<div class='display-order'><span>Your cart is empty!</span></div>";
       }
       ?>
-      <span class="grand-total"> Grand total : $<?= $grand_total; ?> </span>
+      <span class="grand-total"> Tổng tiền: $<?= $grand_total; ?> </span>
    </div>
 
       <div class="flex">
          <div class="inputBox">
-            <span>Your name</span>
-            <input type="text" placeholder="enter your name" name="order_name" value="<?php echo $order_name; ?>" required>
+            <span>Họ và tên</span>
+            <input type="text" placeholder="Nhập họ và tên..." name="order_name" value="<?php echo $order_name; ?>" required>
          </div>
          <div class="inputBox">
-            <span>Your address</span>
-            <input type="text" placeholder="enter your address" name="order_address" value="<?php echo $order_address; ?>" required>
+            <span>Địa chỉ</span>
+            <input type="text" placeholder="Nhập địa chỉ..." name="order_address" value="<?php echo $order_address; ?>" required>
          </div>
          <div class="inputBox">
-            <span>Your phonenumber</span>
-            <input type="number" placeholder="enter your phonenumber" name="order_phonenumber" value="<?php echo $order_phonenumber; ?>" required>
+            <span>Số điện thoại</span>
+            <input type="number" placeholder="Nhập số điện thoại..." name="order_phonenumber" value="<?php echo $order_phonenumber; ?>" required>
          </div>
          <div class="inputBox">
             <span>Size</span>
@@ -121,7 +119,7 @@ if(isset($_POST['order_btn'])){
             </select>
          </div>
       </div>
-      <input type="submit" value="order now" name="order_btn" class="btn">
+      <input type="submit" class="btn btn-primary" value="Đặt hàng" name="order_btn" class="btn">
    </form>
 
 </section>
