@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2024 at 02:39 PM
+-- Generation Time: Apr 15, 2024 at 08:42 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -60,7 +60,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `cart_name`, `cart_image`, `cart_quantity`, `cart_price`) VALUES
-(35, 'Áo thun 333', 'product3.png', 1, '80');
+(43, 'Áo thun 123', 'product1.jpg', 3, '100'),
+(44, 'Quần thun 111', 'product2.jpg', 4, '70');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,7 @@ INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 (1, 'Áo'),
 (2, 'Quần'),
 (3, 'Giày thể thao'),
-(5, 'GIày');
+(5, 'Giày');
 
 -- --------------------------------------------------------
 
@@ -108,21 +109,9 @@ INSERT INTO `orders` (`order_id`, `order_name`, `order_address`, `order_phonenum
 (2, 'qweaaa', 'qweeee@gmail.com', '123123123', 'Big', 'Áo thun 123 (9) , Áo thun 333 (1) , Quần thể thao 444 (1) , Giày thể thao 666 (7) ', '1114'),
 (3, 'qweaaa', 'qweeee@gmail.com', '123123123', 'Big', 'Áo thun 123 (9) , Áo thun 333 (1) , Quần thể thao 444 (1) , Giày thể thao 666 (7) ', '15100'),
 (4, 'asdasd', 'zxczxczxc', '12312312312', 'Big', 'Áo thun 333 (1) , Quần thể thao 444 (1) ', '200'),
-(5, 'Hà Mạnh Cường', '017 Bùi Công Trừng, xã Đông Thạnh, huyện Hóc Môn.', '862727024', 'Large', 'Áo thun 333 (3) , Quần thể thao 444 (4) , Giày thể thao 666 (1) ', '2720');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders_users`
---
-
-CREATE TABLE `orders_users` (
-  `order_id` int(11) NOT NULL,
-  `order_user` int(11) NOT NULL,
-  `order_size` varchar(255) NOT NULL,
-  `total_products` varchar(255) NOT NULL,
-  `total_price` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(5, 'Hà Mạnh Cường', '017 Bùi Công Trừng, xã Đông Thạnh, huyện Hóc Môn.', '862727024', 'Large', 'Áo thun 333 (3) , Quần thể thao 444 (4) , Giày thể thao 666 (1) ', '2720'),
+(6, 'Hà Mạnh Cường', '017 Bùi Công Trừng, xã Đông Thạnh, huyện Hóc Môn.', '862727024', 'Large', 'Áo thun 123 (4) , Quần thể thao 444 (4) ', '880'),
+(7, 'Hà Mạnh Cường', '017 Bùi Công Trừng, xã Đông Thạnh, huyện Hóc Môn.', '862727024', 'Medium', 'Áo thun 123 (3) , Quần thun 111 (4) ', '580');
 
 -- --------------------------------------------------------
 
@@ -220,13 +209,6 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Indexes for table `orders_users`
---
-ALTER TABLE `orders_users`
-  ADD PRIMARY KEY (`order_id`),
-  ADD KEY `order_user` (`order_user`);
-
---
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -261,25 +243,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `orders_users`
---
-ALTER TABLE `orders_users`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -302,12 +278,6 @@ ALTER TABLE `wishlist`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `orders_users`
---
-ALTER TABLE `orders_users`
-  ADD CONSTRAINT `orders_users_ibfk_2` FOREIGN KEY (`order_user`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `products`
